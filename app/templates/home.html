@@ -1,0 +1,38 @@
+<html>
+  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script type=text/javascript>
+   $(document).ready(function () {
+     console.log('Date Being Posted'); 
+     var clock = {
+         "time": new Date
+         }
+     console.log(JSON.stringify(clock));
+       $.ajax({
+
+            url:"/",
+            dataType: 'json',
+            data: JSON.stringify(clock),
+            type:'POST',
+            contentType:"application/json; charset=UTF-8",
+            success: function(response){
+				console.log(response);
+			},
+			error: function(error){
+				console.log(error);
+			}
+       });
+    });
+
+  </script>
+
+  </head>
+  <body>    
+    <p>Your clock is being recorded on the loading of the webpage!</p>
+
+    {% for user in users %}
+    <p>{{user.clock}}</p>
+    {% endfor %}
+  </body>
+</html>
