@@ -9,12 +9,12 @@ from flask_sqlalchemy import SQLAlchemy
 project_dir = os.path.dirname(os.path.abspath(__file__))
 
 #path to the database
-#database_file = "sqlite:///{}".format(os.path.join(project_dir, "userdatabase.db"))
+database_file = "postgresql:///{}".format(os.path.join(project_dir, "userdatabase.db"))
 
 app = Flask(__name__)
 
 #indicate to the web application where the database will be stored
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ['DATABASE_URL']
+app.config["SQLALCHEMY_DATABASE_URI"] = database_file
 
 #initialize a connection to the database; use the db variable to interact with the databse
 db = SQLAlchemy(app)
