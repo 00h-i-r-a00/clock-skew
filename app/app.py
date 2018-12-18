@@ -17,9 +17,12 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #indicate to the web application where the database will be stored
 app.config["SQLALCHEMY_DATABASE_URI"] = 'postgres://favlpjtwngyxmo:16331a96a43a27f46cd02cf9af66a89f9fa07594ddc5b2c2fbc168b2df38b05a@ec2-23-21-122-141.compute-1.amazonaws.com:5432/d7vhvov24eqmvt'
-#initialize a connection to the database; use the db variable to interact with the databse
+#initialize a connection to the database; use the db variable to interact with the database
+#db = SQLAlchemy(app)
 db = SQLAlchemy(app)
-heroku = Heroku(app)
+db.init_app(app)
+db.app = app
+db.create_all()
 
 ##define a model for the user
 
@@ -40,7 +43,9 @@ def home():
         user_agent_received = request.headers.get('User-Agent')
         clock_received = request.get_json()
         user = User(user_agent=user_agent_received, clock=clock_received['time'])
+
         print (user)
+
         try:
             db.session.add(user)
             db.session.commit()
