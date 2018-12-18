@@ -1,1 +1,1 @@
-web: gunicorn clockskew:app
+web: gunicorn app:app
