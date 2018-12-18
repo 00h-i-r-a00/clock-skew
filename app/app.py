@@ -16,8 +16,7 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #indicate to the web application where the database will be stored
-app.config["SQLALCHEMY_DATABASE_URI"] = 'postgres://vzexzvtzganeeu:cd01d066ff473fec6ca1961a66a319d87a4f7b8e7d013297087603a45abf6aa6@ec2-23-21-122-141.compute-1.amazonaws.com:5432/d4d8jj6i7udiao'
-
+app.config["SQLALCHEMY_DATABASE_URI"] = 'postgres://xgtlvkylcqrehr:0ad1ba2bcc1e37c8cab6cf9d43d0023da75e5179c5feac328eb1eb0542b3a114@ec2-23-21-122-141.compute-1.amazonaws.com:5432/df6h3749rfbgev'
 #initialize a connection to the database; use the db variable to interact with the databse
 db = SQLAlchemy(app)
 heroku = Heroku(app)
