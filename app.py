@@ -16,9 +16,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = postgres_url
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 #initialize a connection to the database; use the db variable to interact with the database
 db = SQLAlchemy(app)
-#db.init_app(app)
-#db.app = app
-#db.create_all()
 
 ##define a model for the user
 
@@ -50,7 +47,7 @@ def home():
 
     users = User.query.all()
 
-    return render_template("home.html", users=users)
+    return render_template("index.html", users=users)
 
 
 if __name__ == "__main__":
