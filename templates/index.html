@@ -79,17 +79,21 @@
                 <h1>Clock Skews</h1>
                 <p>Measuring Clocks!</p>
                 
-                <table> 
+                <table class='minimalistBlack'> 
+                <thead>    
                 <tr>
                     <th>User-Agent Strings</th>
                     <th>Clock Times</th>
-                </tr>    
+                </tr>
+                </thead>
+                <tbody>    
                 {% for user in users %}
                 <tr>
                 <th>{{user.user_agent}}</th>
                 <th>{{user.clock}}</th>
                 </tr>
                 {% endfor %}
+                </tbody>
                 </table>   
                 <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
             </div>
