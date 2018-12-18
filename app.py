@@ -5,7 +5,7 @@ from flask import render_template
 from flask import request
 from sqlalchemy import exc
 from flask_sqlalchemy import SQLAlchemy
-from flask_heroku import Heroku``
+from flask_heroku import Heroku
 
 app = Flask(__name__)
 
