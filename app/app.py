@@ -4,7 +4,7 @@ from flask import render_template
 from flask import request
 from sqlalchemy import exc
 from flask_sqlalchemy import SQLAlchemy
-
+from flask_heroku import Heroku``
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -13,11 +13,13 @@ database_file = "postgresql:///{}".format(os.path.join(project_dir, "userdatabas
 
 app = Flask(__name__)
 
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #indicate to the web application where the database will be stored
 app.config["SQLALCHEMY_DATABASE_URI"] = database_file
 
 #initialize a connection to the database; use the db variable to interact with the databse
 db = SQLAlchemy(app)
+heroku = Heroku(app)
 db.init_app(app)
 ##define a model for the user
 
