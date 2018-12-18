@@ -9,7 +9,11 @@ table.minimalistBlack td, table.minimalistBlack th {
   padding: 5px 4px;
 }
 table.minimalistBlack tbody td {
-  font-size: 11px;
+  font-size: 13px;
+}
+
+table.minimalistBlack tbody th {
+  font-size:12px;
   font-weight:normal;
 }
 table.minimalistBlack thead {
